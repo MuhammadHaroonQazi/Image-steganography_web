@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encode Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="file"], textarea, input[type="submit"], .btn {
+            width: 90%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 14px;
+        }
+        input[type="submit"], .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover, .btn:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hide a Message in an Image</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label>Select Image:</label><br>
+            <input type="file" name="image"><br>
+            <label>Secret Message:</label><br>
+            <textarea name="message" rows="4" placeholder="Enter your secret message..."></textarea><br>
+            <input type="submit" value="Encode">
+        </form>
+        {% if encoded_image %}
+        <p>✅ Encoded image saved!</p>
+        <a href="{{ url_for('static', filename='uploads/' + encoded_image) }}" download>📥 Download Encoded Image</a><br>
+        <a href="{{ url_for('decode') }}" class="btn">🔍 Decode Image</a>
+        {% endif %}
+    </div>
+</body>
+</html>
