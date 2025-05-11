@@ -20,9 +20,7 @@ This is a Flask-based web application that allows users to **hide (encode)** and
 ## 📦 How to Run
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/your-username/image-steganography-web.git
-cd image-steganography-web
+# 1. Download Files 
 
 # 2. Create virtual environment (optional but recommended)
 python -m venv venv
