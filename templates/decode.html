@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decode Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f9fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="file"], input[type="submit"] {
+            width: 90%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Extract Hidden Message from Image</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label>Select Encoded Image:</label><br>
+            <input type="file" name="image"><br>
+            <input type="submit" value="Decode">
+        </form>
+        {% if message %}
+        <h3>Decoded Message:</h3>
+        <p>{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
